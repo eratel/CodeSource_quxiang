@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <classPathEntry location="F:\jar\mysql\mysql.jar" />
+  <context id="Mysql" targetRuntime="MyBatis3">
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql:///blog"
+        userId="root"
+        password="root">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="org.etoak.modules.blog.pojo" targetProject="et-manager/src">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="org.etoak.modules.blog.mapper"  targetProject="et-manager/src">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="org.etoak.modules.blog.mapper"  targetProject="et-manager/src">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+     <table schema="MYSQL" tableName="tree" domainObjectName="Tree" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="ID" sqlStatement="MYSQL" identity="true" />  
+    </table>
+    
+    <table schema="MYSQL" tableName="users" domainObjectName="Users" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="ID" sqlStatement="MYSQL" identity="true" />
+    </table>
+
+    <table schema="MYSQL" tableName="MEMORY" domainObjectName="Memory" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="ID" sqlStatement="MYSQL" identity="true" />
+    </table>
+    <table schema="MYSQL" tableName="DETAILEDbBYMEMORY" domainObjectName="DetailedByMemory" >
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="ID" sqlStatement="MYSQL" identity="true" />
+    </table>   
+  </context>
+</generatorConfiguration>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.etoak.modules.demo.mapper.DemoMapper">
+    <insert id="add" parameterType="demo">
+		<selectKey keyProperty="id" resultType="java.lang.String" order="BEFORE">
+			<!-- select @@last_insert_id as id -->
+			select uuid() as id
+		</selectKey>
+		insert into demo set id=#{id},name=#{name}
+	</insert>
+	<select id="queryMessageListByPage"  resultType="demo">
+	    select * from demo
+	</select>
+</mapper>
